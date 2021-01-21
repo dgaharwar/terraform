@@ -1,25 +1,28 @@
-resource "aws_eks_cluster" "cmp-eks-dev" {
+resource "aws_eks_cluster" "dg-eks-cluster" {
   name     = var.cluster_name
   version  = var.cluster_version
-  role_arn = aws_iam_role.cluster_role_dev.arn
+  role_arn = aws_iam_role.AWSServiceRoleForAmazonEKS.arn
 
   vpc_config {
-    security_group_ids = [aws_security_group.cmp-eks-dev.id]
-    subnet_ids         = ["${var.public_subnet_1}", "${var.public_subnet_2}", "${var.private_subnet_1}", "${var.private_subnet_2}"] 
+    security_group_ids = [aws_security_group.automation.id]
+    subnet_ids         = ["${var.labs_app_1a (subnet-964389f2)}", "${var.labs_app_1b (subnet-9b8eddb7)
+}", "${var.labs_lb_1a (subnet-c94d87ad)
+}", "${var.labs_lb_1b (subnet-b88fdc94)
+}"] 
   }
 
   depends_on = [
-    aws_iam_role_policy_attachment.cmp-eks-dev-AmazonEKSClusterPolicy,
-    aws_iam_role_policy_attachment.cmp-eks-dev-AmazonEKSServicePolicy,
+    aws_iam_role_policy_attachment.AWSServiceRoleForAmazonEKS-AmazonEKSClusterPolicy,
+    aws_iam_role_policy_attachment.AWSServiceRoleForAmazonEKS-AmazonEKSServicePolicy,
   ]
 }
 output "endpoint" {
-  value = aws_eks_cluster.cmp-eks-dev.endpoint
+  value = aws_eks_cluster.AWSServiceRoleForAmazonEKS.endpoint
 }
 
 output "cluster_security_group_id" {
   description = "Security group ids attached to the cluster control plane."
-  value       = aws_security_group.cmp-eks-dev.id
+  value       = aws_security_group.automation.id
 }
 
 
