@@ -4,7 +4,7 @@ terraform {
 
 variable "location" {
   description = "Azure location in which to create resources"
-  default = "Central US"
+  default = "UK South"
 }
 
 variable "windows_dns_prefix" {
