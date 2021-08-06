@@ -4,12 +4,12 @@ terraform {
 
 variable "location" {
   description = "Azure location in which to create resources"
-  default = "UK South"
+  default = []
 }
 
 variable "windows_dns_prefix" {
   description = "DNS prefix to add to to public IP address for Windows VM"
-  default = "dgwindns"
+  default = []
 }
 
 variable "admin_password" {
@@ -34,7 +34,7 @@ module "network" {
   version             = "1.1.1"
   location            = "${var.location}"
   resource_group_name = "${var.windows_dns_prefix}-rc"
-  allow_ssh_traffic   = true
+  allow_ssh_traffic   = false
 }
 
 output "windows_vm_public_name"{
