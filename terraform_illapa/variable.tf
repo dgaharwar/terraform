@@ -5,7 +5,7 @@ default = "acctvnet"
 
 variable "resource_group_name" {
 description = "Default resource group name that the network will be created in."
-default = "dg-ops"
+default = "morph-demo"
 }
 
 variable "location" {
@@ -14,7 +14,7 @@ description = "The location/region where the core network will be created. The f
 
 variable "address_space" {
 description = "The address space that is used by the virtual network."
-default = "10.0.0.0/16"
+default = "10.1.0.0/16"
 }
 
 # If no values specified, this defaults to Azure DNS
@@ -30,7 +30,7 @@ default = ["10.0.0.0/24"]
 
 variable "subnet_names" {
 description = "A list of public subnets inside the vNet."
-default = ["default"]
+default = ["morphdemoVnet - morphDemoSubnet"]
 }
 
 variable "tags" {
@@ -55,5 +55,5 @@ default = false
 
 variable "sg_name" {
 description = "Give a name to security group"
-default = "acctsecgrp"
+default = "morph-demo-sg"
 }
