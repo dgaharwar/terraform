@@ -36,7 +36,10 @@ default = ["morphdemoVnet - morphDemoSubnet"]
 variable "tags" {
 description = "The tags to associate with your network and subnets."
 type = map(string)
-default = {"tag1" = "Illapa", "tag2" = "Cloud"}
+default = {
+tag1 = ""
+tag2 = ""
+}
 }
 
 variable "allow_rdp_traffic" {
