@@ -20,17 +20,17 @@ default = "10.0.0.0/16"
 # If no values specified, this defaults to Azure DNS
 variable "dns_servers" {
 description = "The DNS servers to be used with vNet."
-default = []
+default = "dgdns"
 }
 
 variable "subnet_prefixes" {
 description = "The address prefix to use for the subnet."
-default = ["10.0.0.0/24"]
+default = "10.0.0.0/24"
 }
 
 variable "subnet_names" {
 description = "A list of public subnets inside the vNet."
-default = ["dgmorphsubnet"]
+default = "dgmorphsubnet"
 }
 
 variable "tags" {
