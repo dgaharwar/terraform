@@ -8,9 +8,9 @@ description = "Default resource group name that the network will be created in."
 default = "morph-demo"
 }
 
-variable "location" {
-description = "The location/region where the core network will be created. The full list of Azure regions can be found at https://azure.microsoft.com/regions"
-}
+#variable "location" {
+#description = "The location/region where the core network will be created. The full list of Azure regions can be found at https://azure.microsoft.com/regions"
+#}
 
 variable "address_space" {
 description = "The address space that is used by the virtual network."
@@ -35,7 +35,7 @@ default = ["morphdemoVnet - morphDemoSubnet"]
 
 variable "tags" {
 description = "The tags to associate with your network and subnets."
-type = "map"
+type = map(string)
 default = {
 tag1 = ""
 tag2 = ""
