@@ -36,10 +36,7 @@ variable "subnet_names" {
 variable "tags" {
   description = "The tags to associate with your network and subnets."
   type = map(string)
-  default = {
-    tag1 = "Illapa"
-    tag2 = "Cloud"
-  }
+  default = {tag1 = "Illapa", tag2 = "Cloud"}
 }
 
 variable "allow_rdp_traffic" {
