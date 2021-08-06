@@ -35,10 +35,10 @@ default = "dgmorphsubnet"
 
 variable "tags" {
 description = "The tags to associate with your network and subnets."
-type = string
+type = map(string)
 default = {
-tag1 = "Illapa"
-tag2 = "Cloud"
+tag1 = ""
+tag2 = ""
 }
 }
 
