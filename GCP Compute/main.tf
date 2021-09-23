@@ -10,16 +10,17 @@ terraform {
 provider "google" {
   project                     = var.project
   region                      = var.region
-  type                        = var.credentials
-  project_id                  = var.credentials
-  private_key_id              = var.credentials
-  private_key                 = var.credentials
-  client_email                = var.credentials
-  client_id                   = var.credentials
-  auth_url                    = var.credentials
-  token_uri                   = var.credentials
-  auth_provider_x509_cert_url = var.credentials
-  client_x509_cert_url        = var.credentials
+  credentials                 = var.credentials
+  #type                        = var.credentials
+  #project_id                  = var.credentials
+  #private_key_id              = var.credentials
+  #private_key                 = var.credentials
+  #client_email                = var.credentials
+  #client_id                   = var.credentials
+  #auth_url                    = var.credentials
+  #token_uri                   = var.credentials
+  #auth_provider_x509_cert_url = var.credentials
+  #client_x509_cert_url        = var.credentials
 }
 
 data "google_compute_zones" "available" {
