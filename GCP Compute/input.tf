@@ -40,11 +40,6 @@ variable "admin_user" {
   description = "Admin user name to access the virtual machine"
 }
 
-variable "public_key" {
-  type        = string
-  description = "Public key to be associated with the virtual machine"
-}
-
 variable "assign_public_ip" {
   type    = bool
   default = true
