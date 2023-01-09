@@ -1,6 +1,6 @@
 resource "morpheus_group" "tf_example_group" {
-  name      = "tfgroup"
-  code      = "tfgroup"
+  name      = "<%= customOptions.clientName%>"
+  code      = "<%= customOptions.clientName%>"
   location  = "denver"
   cloud_ids = [1]
 }
