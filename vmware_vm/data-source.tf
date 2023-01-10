@@ -3,5 +3,5 @@ data "morpheus_group" "morpheusgroup" {
 }
 
 output  "data_morpheus_group" {
-  value = data.morpheus_group.morpheusgroup
+  value = data.morpheus_group.morpheusgroup.id
 }
