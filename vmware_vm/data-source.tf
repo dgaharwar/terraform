@@ -1,5 +1,5 @@
 data "morpheus_group" "morpheusgroup" {
-  name = "Group A"
+  name = "group1"
 }
 
 output  "data_morpheus_group"{
