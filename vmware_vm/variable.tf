@@ -1,5 +1,5 @@
 variable "morpheus_url" {
-  description = "The URL of the Moprheus platform"
+  description = "The URL of the Morpheus platform"
   type        = string
 }
 
