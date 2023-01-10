@@ -12,3 +12,7 @@ variable "morpheus_password" {
   description = "The password of the user account used to access the Morpheus platform"
   type        = string
 }
+
+variable "tf_client_name" {
+  default = "<%= customOptions.clientName %>"
+}
