@@ -1,4 +1,4 @@
-resource "morpheus_group" "tf_example_group" {
+resource "morpheus_group" "morpheusgroup" {
   name      = "tfgroup"
   code      = "tfgroup"
   location  = "denver"
