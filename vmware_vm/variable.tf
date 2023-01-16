@@ -3,13 +3,8 @@ variable "morpheus_url" {
   type        = string
 }
 
-variable "morpheus_username" {
-  description = "The username of the user account used to access the Morpheus platform"
-  type        = string
-}
-
-variable "morpheus_password" {
-  description = "The password of the user account used to access the Morpheus platform"
+variable "access_token" {
+  description = "The access token of the user account used to access the Morpheus platform"
   type        = string
 }
 
