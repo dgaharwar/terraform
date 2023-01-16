@@ -8,7 +8,6 @@ terraform {
 }
 
 provider "morpheus" {
-  url      = var.morpheus_url
-  username = var.morpheus_username
-  password = var.morpheus_password
+  url          = var.morpheus_url
+  access_token = var.access_token
 }
