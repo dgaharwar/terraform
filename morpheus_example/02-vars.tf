@@ -1,7 +1,14 @@
 # Segments variables
-variable "tf_client_name" {
-  default = "<%= customOptions.clientname %>"
+variable "morpheus_url" {
+  description = "The URL of the Morpheus platform"
+  type        = string
 }
-# Vault variables
-variable "tf_vault_url" {}
-variable "tf_vault_token" {}
+
+variable "access_token" {
+  description = "The access token of the user account used to access the Morpheus platform"
+  type        = string
+}
+
+variable "tf_client_name" {
+  default = "<%= customOptions.clientName %>"
+}
