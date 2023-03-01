@@ -4,7 +4,7 @@
 variable "region" {
   description = "Region where the resources will be created"
   type        = string 
-  default = "us-gov-west-1"
+  default = "us-east-1"
 }
 
 variable "access_key"{
@@ -21,7 +21,7 @@ variable "secret_key" {
 variable "soc_region" {
   description = "Region for the SOC account (to create the Secret)"
   type        = string 
-  default = "us-gov-west-1"
+  default = "us-east-1"
 }
 
 variable "soc_access_key"{
@@ -47,7 +47,7 @@ variable "client"{
 variable "account_name" { 
   description = "AWS Account name (i.e. RFS, MyGinnieMaeDev, DMC3-Test, CICD)"
   type        = string 
-  default     = "RFS"
+  default     = "Morpheus"
 }
 
 variable "environment"{
