@@ -1,1 +1,1 @@
-terraform import morpheus_group.tf_example_group 3
+terraform import morpheus_group.tf_example_group 1
