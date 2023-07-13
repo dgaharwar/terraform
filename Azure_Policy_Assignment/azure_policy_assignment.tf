@@ -26,21 +26,21 @@ resource "azurerm_policy_assignment" "example" {
 # Configire the Variables
 variable subscription_id {
     type = string
-    default = "3b6ff759-299c-4a48-bef8-d1e612b57658"
+    default = ""
     sensitive = false
 }
 variable tenant_id {
     type = string
-    default = "b16e2942-acf7-4664-a827-c99d7e81a77d"
+    default = ""
     sensitive = false
 }
 variable client_id {
     type = string
-    default = "ea0042dd-7aa4-48b0-a018-05b5f0aa14f1"
+    default = ""
     sensitive = true
 }
 variable client_secret {
     type = string
-    default = "2.28Q~R7Y9nS7ViLHWhDZoGghwoWPZcluAfrFaD6"
+    default = ""
     sensitive = true
 }
