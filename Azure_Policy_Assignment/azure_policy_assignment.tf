@@ -25,21 +25,17 @@ resource "azurerm_policy_assignment" "dg_policy" {
 # Configure the Variables
 variable subscription_id {
     type = string
-    default = ""
     sensitive = false
 }
 variable tenant_id {
     type = string
-    default = ""
     sensitive = false
 }
 variable client_id {
     type = string
-    default = ""
     sensitive = true
 }
 variable client_secret {
     type = string
-    default = ""
     sensitive = true
 }
