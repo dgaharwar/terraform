@@ -10,11 +10,11 @@ variable "profile" {
   default     = ""
 }
 
-variable "region" {
-  description = "AWS region"
-  type        = string
-  default     = ""
-}
+#variable "region" {
+#  description = "AWS region"
+#  type        = string
+#  default     = ""
+#}
 
 variable "regions" {
   description = "AWS regions under which this configuration is used (for region-specific setup)"
