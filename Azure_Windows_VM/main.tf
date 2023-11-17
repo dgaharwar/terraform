@@ -105,9 +105,23 @@ resource "azurerm_network_security_group" "nsg" {
     source_port_range          = "*"
     destination_port_range     = "443"
     source_address_prefix      = "*"
-    destination_address_prefix = "*"
+    destination_address_prefix = "*"  
   }
+
+    security_rule {
+    name                       = "AllowWinRM"
+    priority                   = 302
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "5985"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"  
+  }
+
 }
+
 
 resource "azurerm_network_interface_security_group_association" "attach_Nic_Nsg" {
   network_interface_id      = azurerm_network_interface.nic.id
