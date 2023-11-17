@@ -46,25 +46,25 @@ variable "windowsvm_caching" {
   default  = "ReadWrite"
 }
 
-variable "subscription_id" {
-  type = string
-  default = "<%=cypher.read('secret/azureautomation').tokenize('|')[0]%>"
-}
+#variable "subscription_id" {
+#  type = string
+#  default = "<%=cypher.read('secret/azureautomation').tokenize('|')[0]%>"
+#}
 
-variable "tenant_id" {
-  type = string
-  default = "<%=cypher.read('secret/azureautomation').tokenize('|')[1]%>"
-}
+#variable "tenant_id" {
+#  type = string
+#  default = "<%=cypher.read('secret/azureautomation').tokenize('|')[1]%>"
+#}
 
-variable "client_id" {
-  type = string
-  default = "<%=cypher.read('secret/azureautomation').tokenize('|')[2]%>"
-}
+#variable "client_id" {
+#  type = string
+#  default = "<%=cypher.read('secret/azureautomation').tokenize('|')[2]%>"
+#}
 
-variable "client_secret" {
-  type = string
-  default = "<%=cypher.read('secret/azureautomation').tokenize('|')[3]%>"
-}
+#variable "client_secret" {
+#  type = string
+#  default = "<%=cypher.read('secret/azureautomation').tokenize('|')[3]%>"
+#}
 
 
 
