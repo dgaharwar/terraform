@@ -13,7 +13,7 @@ variable "location" {
 variable "resource_group_name" {
   type        = string
   description = "The name of the resource group where the virtual machine will be created"
-  default     = "rmg-ops"
+  default     = "204541-rg"
 }
 
 variable "disk_type" {
