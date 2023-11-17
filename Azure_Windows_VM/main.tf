@@ -86,40 +86,55 @@ resource "azurerm_network_security_group" "nsg" {
 
   security_rule {
     name                       = "AllowRDP"
+    description                = "Allow RDP"
     priority                   = 300
     direction                  = "Inbound"
     access                     = "Allow"
     protocol                   = "Tcp"
     source_port_range          = "*"
     destination_port_range     = "3389"
-    source_address_prefix      = "*"
-    destination_address_prefix = "*"
+    source_address_prefix      = "Internet"
+    destination_address_prefix = "*" 
   }
 
   security_rule {
     name                       = "AllowHTTPS"
+    description                = "Allow HTTPS"
     priority                   = 301
     direction                  = "Inbound"
     access                     = "Allow"
     protocol                   = "Tcp"
     source_port_range          = "*"
     destination_port_range     = "443"
-    source_address_prefix      = "*"
+    source_address_prefix      = "Internet"
     destination_address_prefix = "*"  
   }
 
     security_rule {
     name                       = "AllowWinRM"
+    description                = "Allow WinRM"
     priority                   = 302
     direction                  = "Inbound"
     access                     = "Allow"
     protocol                   = "Tcp"
     source_port_range          = "*"
     destination_port_range     = "5985"
-    source_address_prefix      = "*"
+    source_address_prefix      = "Internet"
     destination_address_prefix = "*"  
   }
 
+  security_rule {
+    name                       = "AllowHTTP"
+    description                = "Allow HTTP"
+    priority                   = 302
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "80"
+    source_address_prefix      = "Internet"
+    destination_address_prefix = "*"
+  }
 }
 
 
