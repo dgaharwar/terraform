@@ -40,6 +40,25 @@ locals {
   }
 }
 
+locals {
+custom_data = <<CUSTOM_DATA
+<powershell>
+
+winrm quickconfig -q
+winrm set winrm/config/winrs '@{MaxMemoryPerShellMB="0"}'
+winrm set winrm/config '@{MaxTimeoutms="7200000"}'
+netsh advfirewall firewall add rule name="WinRM 5985" protocol=TCP dir=in localport=5985 action=allow
+net stop winrm
+sc config winrm start=auto
+net start winrm
+
+Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope LocalMachine -Force
+<%=instance?.cloudConfig?.agentInstallTerraform%>
+<%=cloudConfig?.finalizeServer%>
+CUSTOM_DATA
+MorpheusApp = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCuLamIEyIgtRDUFW7HOnHwyXAccJVeWXaiM0gUIsZ5hbOnOgst7c//O3ifRmhCIgcNjRv/BUuzCH6UvYZTDuORItsF6T1GQNOnBUyZKSd3H7usmYjhXFZkTUw61LhR0Irf+KIkB9Cu7WI+GaeejFBym/09eWCNQkG7TNgczpDTQTjAnX6LALag0MN/wTk0mYyToSimuKEw2ZTprPxS0stywlKjmNEGQfqq8HKi9cTdEkSu3jn0cREkssTE1Yw96BrN+hm+AU3d2/QIttZoOI9rP2D4COvBJtHTZ4BPcXYSxsdDfdrmTAk4U7lRJx2Y37aPrMxNu1werWcK7sWUqnIpV0n2y1elU2+8XY2WbvEO2dtBtic9yxzBYoLe/JY1q/FMDl+UZqoUtLquuRSQfDPdwUykhGIMDyzbCwJspkLtotGz/F1De+Q8QEqe+gZELkayyniau6h0aHEGe49KYw6HXTyFhDrOm41HFgxvPMHVxpv0vPiwbHvVQMqoxo1ouuk= deeptigaharwar@Deeptis-MacBook-Pro.local"
+}
+
 resource "azurerm_resource_group" "rg" {
   name     = var.resource_group_name
   location = var.location
