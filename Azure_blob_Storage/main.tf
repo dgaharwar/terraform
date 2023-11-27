@@ -9,9 +9,9 @@ terraform {
  
 # Configure the Locals
 
-locals {
-   storLargeFileShare = "<%=customOptions.storLargeFileShare%>" == "on" ? true : var.storLargeFileShare
-}
+#locals {
+#   storLargeFileShare = "<%=customOptions.storLargeFileShare%>" == "on" ? true : var.storLargeFileShare
+#}
 
 # Configure the Microsoft Azure Provider
 provider "azurerm" {

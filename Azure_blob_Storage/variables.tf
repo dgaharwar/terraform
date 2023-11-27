@@ -1,12 +1,12 @@
 variable "storName" {
  type    = string
- default = "<%=customOptions.storName%>"
+ default = "test"
 }
  
-variable "storLargeFileShare" {
-  type    = bool
-  default = false
-}
+#variable "storLargeFileShare" {
+#  type    = bool
+#  default = false
+#}
  
 variable subscription_id {
  type = string
