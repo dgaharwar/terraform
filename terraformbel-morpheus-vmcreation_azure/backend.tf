@@ -1,6 +1,6 @@
 terraform {
   backend "gcs" {
-    bucket = "gcs-bel-p-tfstates-001"
+    bucket = "dg-morpheusapp-bucket"
     prefix = "morpheus/vmcreation"
   }
 }
