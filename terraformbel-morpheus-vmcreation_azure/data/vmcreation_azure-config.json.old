@@ -1,0 +1,150 @@
+{
+  "group": {
+   "id":"6"
+  },
+  "cloud": {
+   "id": "<%= customOptions.parsedCloud %>"
+
+  },
+  "type": "belw2019",
+  "config": {
+   "createUser": false,
+   "isEC2": false,
+   "isVpcSelectable": true,
+   "noAgent": false,
+   "azureRegion": "",
+   "azuresecurityGroupId": null,
+   "availabilityOptions": "",
+   "availabilityZone": 1,
+   "availabilitySet": "",
+   "azurefloatingIp": false,
+   "bootDiagnostics": null,
+   "osGuestDiagnostics": "off",
+   "diagnosticsStorageAccount": null,
+   "poolProviderType": null,
+   "resourcePoolId": "<%= results.azcreaterg.id %>",
+   "customOptions": {
+     "azRgName": "<%= customOptions.azRgName %>"
+   }
+  },
+  "name": "${cloudCode.take(3).toUpperCase()}-${instance.instanceContext.take(1).toUpperCase()}${customOptions.technicalService.take(3).toUpperCase()}${customOptions.applicationName.take(6).toUpperCase()}${sequence.toString().padLeft(2,'0')}",
+  "environment": "6",
+  "volumes": [
+   {
+    "rootVolume": true,
+    "name": "root",
+    "maxStorage": 136365211648,
+    "size": 127,
+    "volumeCustomizable": true,
+    "readonlyName": false,
+    "vId": 2169,
+    "minStorage": 136365211648,
+    "storageType": 40,
+    "maxIOPS": null,
+    "datastoreId": 2
+   }
+  ],
+  "hostName": "${cloudCode.take(3).toUpperCase()}-${instance.instanceContext.take(1).toUpperCase()}${customOptions.technicalService.take(3).toUpperCase()}${customOptions.applicationName.take(6).toUpperCase()}${sequence.toString().padLeft(2,'0')}",
+  "instance": {
+   "userGroup": {
+    "id": ""
+   }
+  },
+  "defaultExpandAdvanced": true,
+  "metadata": [
+   {
+    "name": "environment",
+    "value": "test",
+    "strict": false,
+    "listId": "1",
+    "strictValue": false
+   },
+   {
+    "name": "Owner",
+    "value": "Matthieu LUSSEAUD",
+    "strict": false,
+    "listId": "",
+    "strictValue": false
+   },
+   {
+    "name": "Backup",
+    "value": "true",
+    "strict": false,
+    "listId": "2",
+    "strictValue": false
+   },
+   {
+    "name": "CostCenter",
+    "value": "WW - System",
+    "strict": false,
+    "listId": "",
+    "strictValue": false
+   },
+   {
+    "name": "ApplicationName",
+    "value": "<%= customOptions.applicationName %>",
+    "strict": false,
+    "listId": "",
+    "strictValue": false
+   },
+   {
+    "name": "DowntimePeriod",
+    "value": "H8",
+    "strict": false,
+    "listId": "",
+    "strictValue": false
+   },
+   {
+    "name": "Region",
+    "value": "FranceCentral",
+    "strict": false,
+    "listId": "",
+    "strictValue": false
+   },
+   {
+    "name": "OpeningHours",
+    "value": "BEL - C1 : 24/7 GTR 2 hours",
+    "strict": false,
+    "listId": "4",
+    "strictValue": false
+   },
+   {
+    "name": "Terraform",
+    "value": "false",
+    "strict": false,
+    "listId": "2",
+    "strictValue": false
+   }
+  ],
+  "layout": {
+   "id": 1344,
+   "code": "dd58a6fd-a4b6-4adb-99d4-ffae80e9b1cc"
+  },
+  "plan": {
+   "id": 3368,
+   "code": "azure.plan.francecentral.Standard_B2als_v2"
+  },
+  "version": "23.11",
+  "networkInterfaces": [
+   {
+    "primaryInterface": true,
+    "network": {
+     "id": "<%=customOptions.azrSubnetworks%>"
+    },
+    "ipMode": "",
+    "showNetworkPoolLabel": false,
+    "showNetworkDhcpLabel": true
+   }
+  ],
+  "backup": {
+   "createBackup": false,
+   "jobAction": "new",
+   "jobRetentionCount": 3,
+   "veeamManagedServer": "",
+   "providerBackupType": -1
+  },
+  "loadBalancer": [],
+  "hideLock": true,
+  "copies": 1,
+  "showScale": false
+ }
