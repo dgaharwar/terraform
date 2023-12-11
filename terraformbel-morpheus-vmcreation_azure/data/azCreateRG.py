@@ -12,7 +12,7 @@ MORPHEUS_HEADERS = {"Content-Type":"application/json","Accept":"application/json
 url1 = 'https://%s/api/zones/2/resource-pools' % (MORPHEUS_HOST )
 payload = {
     "resourcePool":{
-    "regionCode":"francecentral",
+    "regionCode":"centralus",
     "defaultPool":False,
     "defaultImage":False,
     "active":True,

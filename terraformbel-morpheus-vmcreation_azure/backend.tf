@@ -1,6 +1,6 @@
-terraform {
-  backend "gcs" {
-    bucket = "dg-morpheusapp-bucket"
-    prefix = "morpheus/vmcreation"
-  }
-}
+#terraform {
+#  backend "gcs" {
+#    bucket = "dg-morpheusapp-bucket"
+#    prefix = "morpheus/vmcreation"
+#  }
+#}
