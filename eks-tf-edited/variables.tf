@@ -123,7 +123,7 @@ variable "private_subnet_1" {
 
 variable "private_subnet_2" {
   description = "private subnet id in  VPC"
-  default     = "subnet-81980bb0"
+  default     = "subnet-37efa251"
 }
 
 variable "vpn_cidrs" {
