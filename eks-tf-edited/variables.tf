@@ -15,17 +15,17 @@ variable "aws_secret_key" {}
 
 variable "cluster_name" {
   type    = string
-  default = "cmp-eks-dev"
+  default = "dg-cmp-eks-dev"
 }
 
 variable "cluster_version" {
-  default = "1.18"
+  default = "1.29"
 }
 
 #=====================NodeGroup 1========================#
 variable "cmp_primary_node_group" {
   description = "Name of Node Group"
-  default     = "cmp-primary-ng"
+  default     = "dg-cmp-primary-ng"
 }
 
 variable "primary_nodes_disk_size" {
@@ -58,7 +58,7 @@ variable "cmp_primary_instance_type" {
 #=====================NodeGroup 2========================#
 #variable "cmp_secondary_node_group" {
 #  description = "Name of Node Group"
-#  default     = "cmp-secondary-ng"
+#  default     = "dg-cmp-secondary-ng"
 #}
 
 #variable "secondary_nodes_disk_size" {
@@ -85,14 +85,14 @@ variable "cmp_primary_instance_type" {
 
 #variable "cmp_secondary_instance_type" {
 #  description = "instance type of worker"
-#  default     = ["t3.medium"]
+#  default     = ["t2.medium"]
 #}
 #==========================================================#
 
 
 variable "ec2_ssh_key" {
   description = "ssh key name for ec2 instance"
-  default     = "k8s-jump"
+  default     = "MorpheusApp"
 }
 
 #===============================================================================
@@ -102,23 +102,23 @@ variable "ec2_ssh_key" {
 variable "vpc_id" {
   description = "vpc id"
   type        = string
-  default     = "vpc-9ebc7be3"
+  default     = "vpc-33ac354e"
 }
 
 
 variable "public_subnet_1" {  
   description = "public subnet id in  VPC"
-  default     = "subnet-0f26a510c1cbfb3e9"
+  default     = "subnet-12e7ae4d"
 }
 
 #variable "public_subnet_2" {  
 #  description = "public subnet id in  VPC"
-#  default     = "subnet-057ea7adadc8a6"
+#  default     = "subnet-37a1ea16"
 #}
 
 variable "private_subnet_1" {
   description = "private subnet id in  VPC"
-  default     = "subnet-55852e33"
+  default     = "subnet-03b9ce9725230b022"
 }
 
 variable "private_subnet_2" {
