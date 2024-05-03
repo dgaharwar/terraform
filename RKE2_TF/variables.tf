@@ -2,7 +2,7 @@
 #########################################################################################################
 variable "kubernetesVersion" {
   description = "Variable to set the cluster name"
-  default     = "v1.24.9+rke2r2"
+  default     = "v1.27.12+rke2r1"
 }
 
 variable "rke2ClusterName" {
@@ -12,16 +12,16 @@ variable "rke2ClusterName" {
 
 variable "containerRegistry" {
   description = "Variable to set the container registry for the default registry and rke2 rewrite endpoint - DO NOT set any protocol (http/https), will be rewritten to https:// in the background"
-  default     = "registryref.xad.hessen.de"
+  default     = "host46.testlab.local"
 }
 
 variable "proxy" {
   description = "Proxy for communication with Rancher, Harbor & Vault which are deployed in MAOAM"
-  default     = "caasapiref01.xad.hessen.de:3128"
+  default     = "10.32.20.36:3128"
 }
 
 variable "no_proxy" {
-  default     = "127.0.0.0/8,10.43.0.0/16,172.16.0.0/12,192.168.0.0/16,10.23.0.0/16,.svc,.cluster.local"
+  default     = "127.0.0.0/8,10.43.0.0/16,172.16.0.0/12,192.168.0.0/16,10.23.0.0/16,.svc,.cluster.local,host46.testlab.local"
   description = "NO_PROXY rules to make sure proxy is only used for communication with Rancher, Harbor & Vault"
 }
 
