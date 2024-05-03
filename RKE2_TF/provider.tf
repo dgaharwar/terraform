@@ -13,7 +13,7 @@ terraform {
 }
 
 provider "rancher2" {
-  api_url    = "https://rancherref.maoam.hessen.de"
+  api_url    = "https://host46.testlab.local"
   access_key = "${var.access_key}"
   secret_key = "${var.secret_key}"
   insecure   = true
@@ -21,7 +21,7 @@ provider "rancher2" {
 
 
 # provider "vault" {
-#   address         = "https://vaultref.maoam.hessen.de"
+#   address         = "https://host46.testlab.local"
 #   skip_tls_verify = true
 # }
 
