@@ -1,0 +1,48 @@
+#cloud-config
+write_files:
+  - path: /etc/resolv.conf
+    content: |
+      search maoam.hessen.de intern.hessen.de xad.hessen.de
+      nameserver 10.23.32.32
+      nameserver 10.23.33.33
+  - path: /etc/NetworkManager/conf.d/rke2-canal.conf
+    content: |
+      [keyfile]
+      unmanaged-devices=interface-name:cali*;interface-name:flannel*
+  - path: /root/setup.sh
+    content: |
+      #!/bin/bash
+      systemctl stop firewalld
+      systemctl disable firewalld
+      touch /root/OK
+  - path: /etc/default/rke2-server
+    content: |
+      CONTAINERD_NO_PROXY=${no_proxy}
+      CONTAINERD_HTTPS_PROXY=${proxy}
+      CONTAINERD_HTTP_PROXY=${proxy}
+  - path: /etc/default/rke2-agent
+    content: |
+      CONTAINERD_NO_PROXY=${no_proxy}
+      CONTAINERD_HTTPS_PROXY=${proxy}
+      CONTAINERD_HTTP_PROXY=${proxy}
+  - path: /root/eval_shell.sh
+    content: |
+      env > /root/sh_env.txt
+  - path: /root/eval_bash.sh
+    content: |
+      env > /root/bash_env.txt
+  - path: /root/caas.sh
+    content: |
+      #!/bin/bash
+      ${reg_command}
+
+runcmd:
+  - export https_proxy=${proxy}
+  - export http_proxy=${proxy}
+  - export HTTPS_PROXY=${proxy}
+  - export HTTP_PROXY=${proxy}
+  - export NO_PROXY=${no_proxy}
+  - bash /root/setup.sh > /root/setup.log
+  - sh /root/eval_shell.sh
+  - bash /root/eval_bash.sh
+  - bash /root/caas.sh
