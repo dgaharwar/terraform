@@ -10,7 +10,7 @@ resource "aws_instance" "dg_instance" {
   key_name      = var.key_name
 
   tags = {
-    Name = "<%=customOptions.instanceName%>"
+    Name = "<%=input.name%>"
   }
 
   dynamic "ebs_block_device" {
