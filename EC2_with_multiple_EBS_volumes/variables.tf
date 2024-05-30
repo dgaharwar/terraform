@@ -8,8 +8,7 @@ variable "access_key" {
 }
 
 variable "region" {
-  description = "The Access Key for the user to authenticate"
-  default     = "us-east-1"
+  description = "The Secret Key for the user to authenticate"
 }
 
 variable "ami" {
