@@ -10,7 +10,7 @@ resource "aws_instance" "dg_instance" {
   key_name      = var.key_name
 
   tags = {
-    Name = "dg-vm-01"
+    Name = "dg-vm-02"
   }
 
   dynamic "ebs_block_device" {
