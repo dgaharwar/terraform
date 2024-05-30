@@ -1,16 +1,3 @@
-variable "region" {
-  description = "The AWS region to create resources in"
-  default     = "us-east-1"
-}
-
-variable "access_key" {
-  description = "The Access Key for the user to authenticate"
-}
-
-variable "region" {
-  description = "The Secret Key for the user to authenticate"
-}
-
 variable "ami" {
   description = "The AMI ID to use for the instance"
   default     = "ami-0e001c9271cf7f3b9"
