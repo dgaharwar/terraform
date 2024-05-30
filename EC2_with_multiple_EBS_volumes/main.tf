@@ -4,13 +4,13 @@ provider "aws" {
   secret_key = var.secret_key
 }
 
-resource "aws_instance" "dgexample" {
+resource "aws_instance" "dg_instance" {
   ami           = var.ami
   instance_type = var.instance_type
   key_name      = var.key_name
 
   tags = {
-    Name = "dgexample-instance"
+    Name = "dg-vm-01"
   }
 
   dynamic "ebs_block_device" {
