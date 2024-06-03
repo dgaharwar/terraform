@@ -5,10 +5,17 @@ variable "region" {
   type = string
 }
 
-variable "account_id" {
+variable "access_key" {
   type = string
 }
 
+variable "secret_key" {
+  type = string
+}
+
+variable "account_id" {
+  type = string
+}
 
 
 #EC2 Config #################################################################################
