@@ -23,6 +23,7 @@ variable "account_id" {
 
 variable "vpc_name" {
   type = string
+  default = "myVpc"
 }
 
 variable "win22_ami" {
