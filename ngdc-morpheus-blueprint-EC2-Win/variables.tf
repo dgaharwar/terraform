@@ -92,7 +92,7 @@ variable "instance_type" {
 variable "instance_profile_name" {
   type        = string
   description = "Instance Profile to associate with the new instance"
-  default = "DG_MorpheusApplinceRole"
+  default = "DG_MorpheusApplianceRole"
 }
 
 variable "root_volume_size" {
