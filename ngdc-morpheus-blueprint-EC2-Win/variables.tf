@@ -15,6 +15,7 @@ variable "secret_key" {
 
 variable "account_id" {
   type = string
+  default = "402420433104"
 }
 
 
@@ -45,7 +46,6 @@ variable "private_ipv6" {
 
 variable "net_adapter_name" {
   type = string
-
   description = "Name to rename the NIC to"
 }
 
@@ -56,7 +56,6 @@ variable "subnet_id" {
 variable "ad_domain_name" {
   type    = string
   default = "fsa.mrd"
-
   description = "AD Domain to join"
 }
 
