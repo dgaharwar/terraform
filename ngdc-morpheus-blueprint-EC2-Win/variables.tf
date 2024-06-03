@@ -26,6 +26,7 @@ variable "vpc_name" {
 
 variable "win22_ami" {
   type    = string
+  default = "ami-0069eac59d05ae12b"
 }
 
 variable "hostname" {
