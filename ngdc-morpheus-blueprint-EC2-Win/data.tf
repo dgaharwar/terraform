@@ -1,13 +1,13 @@
 
 data "aws_security_group" "windows_standard_sg" {
   tags = {
-    Name = "sg-2b299333"
+    Name = "vpc-33ac354e"
   }
 }
 
 data "aws_security_group" "windows_standard2_sg" {
   tags = {
-    Name = "sg-00c2b0b7b7d5e596d"
+    Name = "launch-wizard-1"
   }
 }
 
