@@ -58,7 +58,7 @@ data "aws_iam_policy_document" "ebs_key_policy" {
 
     principals {
       type        = "AWS"
-      identifiers = ["arn:aws-us-gov:iam::${var.account_id}:root"]
+      identifiers = ["arn:aws:iam::${var.account_id}:root"]
     }
 
     effect = "Allow"
