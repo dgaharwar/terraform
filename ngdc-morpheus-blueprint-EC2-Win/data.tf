@@ -1,15 +1,22 @@
-
 data "aws_security_group" "windows_standard_sg" {
-  tags = {
-    Name = "vpc-33ac354e"
-  }
+  id = "sg-2b299333"
 }
 
 data "aws_security_group" "windows_standard2_sg" {
-  tags = {
-    Name = "launch-wizard-1"
-  }
+  id = "sg-00c2b0b7b7d5e596d"
 }
+
+#data "aws_security_group" "windows_standard_sg" {
+#  tags = {
+#    Name = "vpc-33ac354e"
+#  }
+#}
+
+#data "aws_security_group" "windows_standard2_sg" {
+#  tags = {
+#    Name = "launch-wizard-1"
+#  }
+#}
 
 data "aws_secretsmanager_secret" "existing_keypair_secret" {
   count = !var.create_keypair_secret ? 1 : 0
