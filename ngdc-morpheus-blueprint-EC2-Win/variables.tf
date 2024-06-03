@@ -37,6 +37,7 @@ variable "hostname" {
 variable "private_ipv4" {
   type    = string
   default = ""
+
 }
 
 variable "private_ipv6" {
@@ -51,6 +52,7 @@ variable "net_adapter_name" {
 
 variable "subnet_id" {
   type = string
+  default = "subnet-ed6462e3"
 }
 
 variable "ad_domain_name" {
@@ -72,6 +74,7 @@ variable "ad_environment" {
 variable "ad_availability_zone" {
   type        = string
   description = "AZ instance lives in. eg. AZ1, AZ2"
+  default = "AZ1"
 
   # validation {
   #   condition     = contains(["AZ1", "AZ2"], var.ad_availability_zone)
@@ -82,11 +85,13 @@ variable "ad_availability_zone" {
 variable "instance_type" {
   type        = string
   description = "EC2 instance type. eg. t3.large"
+  default = "t2.micro"
 }
 
 variable "instance_profile_name" {
   type        = string
   description = "Instance Profile to associate with the new instance"
+  default = "DG_MorpheusApplinceRole"
 }
 
 variable "root_volume_size" {
