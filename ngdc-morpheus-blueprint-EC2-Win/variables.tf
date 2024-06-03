@@ -92,35 +92,30 @@ variable "instance_profile_name" {
 variable "root_volume_size" {
   type    = string
   default = "100"
-
   description = "Size of the C: Drive"
 }
 
 variable "volume_type" {
   type    = string
   default = "gp3"
-
   description = "Storage type eg. gp2, gp3"
 }
 
 variable "delete_on_termination" {
   type    = bool
   default = "true"
-
   description = "Delete associated EBS Volumes on instance termination"
 }
 
 variable "create_eni" {
   type    = bool
-  default = "true"
-
+  default = "false"
   description = "Defines whether or not to create an ENI or use an existing ENI"
 }
 
 variable "associate_public_ip_address" {
   type    = bool
-  default = "false"
-
+  default = "true"
   description = "Defines whether or not to associate a public IP address. Only used in Public Subnets"
 }
 
@@ -149,7 +144,7 @@ variable "create_keypair_secret" {
 
 variable "domain_credential_secret_id" {
   type    = string
-  default = "arn:aws-us-gov:secretsmanager:us-gov-west-1:261672608306:secret:/ngdc/fsa.mrd/domain-credentials-1rcwi9"
+  default = "arn:aws:secretsmanager:us-east-1:402420433104:secret:DGMorph/Secret-vhzBJG"
 }
 
 #endregion Secret Manager Secrets
@@ -171,38 +166,43 @@ variable "additional_drive_configuration" {
 variable "disable_api_termination" {
   type    = bool
   default = "true"
-
   description = "Turns EC2 Termination Protection On or Off."
 }
 
 variable "disable_api_stop" {
   type    = bool
   default = "false"
-
   description = "Turns EC2 Stop Protection On or Off."
 }
+
+
 #endregion Additional Settings and EBS Volumes
 
 #region Standard Tags ##############################################################################
 
 variable "build_date_tag" {
   type = string
+  default = "No"
 }
 
 variable "build_engineer_tag" {
   type = string
+  default = "No"
 }
 
 variable "environment_tag" {
   type = string
+  default = "No"
 }
 
 variable "application_tag" {
   type = string
+  default = "No"
 }
 
 variable "tracking_id_tag" {
   type = string
+  default = "No"
 }
 
 variable "version_tag" {
@@ -212,27 +212,32 @@ variable "version_tag" {
 
 variable "vpc_tag" {
   type = string
+  default = "No"
 }
 
 variable "pii_tag" {
   type = string
+  default = "No"
 }
 
 variable "backup_tag" {
   type    = string
-  default = "Yes"
+  default = "No"
 }
 
 variable "instance_description_tag" {
   type = string
+  default = "No"
 }
 
 variable "ec2_function_tag" {
   type = string
+  default = "No"
 }
 
 variable "patch_group_tag" {
   type = string
+  default = "No"
 }
 
 variable "automation_tag" {
@@ -243,23 +248,21 @@ variable "automation_tag" {
 variable "autostartstop_tag" {
   type    = string
   default = "No"
-
 }
 
 variable "autostarttime_tag" {
   type    = string
   default = "No"
-
 }
 
 variable "autostoptime_tag" {
   type    = string
   default = "No"
-
 }
 
 variable "availability_zone_tag" {
   type = string
+  default = "No"
 }
 
 #endregion Standard Tags
