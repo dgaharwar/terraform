@@ -65,6 +65,7 @@ variable "ad_domain_name" {
 variable "ad_environment" {
   type        = string
   description = "OU to place new instance in. eg. Prod, NonProd, MGMT"
+  default = "Prod"
 
   # validation {
   #   condition     = contains(["Prod", "NonProd", "MGMT"], var.ad_environment)
@@ -115,7 +116,7 @@ variable "delete_on_termination" {
 
 variable "create_eni" {
   type    = bool
-  default = "false"
+  default = "true"
   description = "Defines whether or not to create an ENI or use an existing ENI"
 }
 
