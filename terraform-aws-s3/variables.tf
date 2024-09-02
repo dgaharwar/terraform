@@ -88,17 +88,17 @@ variable "request_payer" {
   default     = null
 }
 
-variable "website" {
-  description = "Map containing static web-site hosting or redirect configuration."
-  type        = any # map(string)
-  default     = {}
-}
+#variable "website" {
+#  description = "Map containing static web-site hosting or redirect configuration."
+#  type        = any # map(string)
+#  default     = {}
+#}
 
-variable "cors_rule" {
-  description = "List of maps containing rules for Cross-Origin Resource Sharing."
-  type        = any
-  default     = []
-}
+#variable "cors_rule" {
+#  description = "List of maps containing rules for Cross-Origin Resource Sharing."
+#  type        = any
+#  default     = []
+#}
 
 variable "versioning" {
   description = "Map containing versioning configuration."
@@ -112,11 +112,11 @@ variable "logging" {
   default     = {}
 }
 
-variable "grant" {
-  description = "An ACL policy grant. Conflicts with `acl`"
-  type        = any
-  default     = []
-}
+#variable "grant" {
+#  description = "An ACL policy grant. Conflicts with `acl`"
+#  type        = any
+#  default     = []
+#}
 
 variable "owner" {
   description = "Bucket owner's display name and ID. Conflicts with `acl`"
@@ -130,35 +130,35 @@ variable "expected_bucket_owner" {
   default     = null
 }
 
-variable "lifecycle_rule" {
-  description = "List of maps containing configuration of object lifecycle management."
-  type        = any
-  default     = []
-}
+#variable "lifecycle_rule" {
+#  description = "List of maps containing configuration of object lifecycle management."
+#  type        = any
+#  default     = []
+#}
 
-variable "replication_configuration" {
-  description = "Map containing cross-region replication configuration."
-  type        = any
-  default     = {}
-}
+#variable "replication_configuration" {
+#  description = "Map containing cross-region replication configuration."
+#  type        = any
+#  default     = {}
+#}
 
-variable "server_side_encryption_configuration" {
-  description = "Map containing server-side encryption configuration."
-  type        = any
-  default     = {}
-}
+#variable "server_side_encryption_configuration" {
+#  description = "Map containing server-side encryption configuration."
+#  type        = any
+#  default     = {}
+#}
 
-variable "intelligent_tiering" {
-  description = "Map containing intelligent tiering configuration."
-  type        = any
-  default     = {}
-}
+#variable "intelligent_tiering" {
+#  description = "Map containing intelligent tiering configuration."
+#  type        = any
+#  default     = {}
+#}
 
-variable "object_lock_configuration" {
-  description = "Map containing S3 object locking configuration."
-  type        = any
-  default     = {}
-}
+#variable "object_lock_configuration" {
+#  description = "Map containing S3 object locking configuration."
+#  type        = any
+#  default     = {}
+#}
 
 variable "object_lock_enabled" {
   description = "Whether S3 bucket should have an Object Lock configuration enabled."
