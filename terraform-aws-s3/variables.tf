@@ -64,11 +64,11 @@ variable "policy" {
   default     = null
 }
 
-variable "tags" {
-  description = "(Optional) A mapping of tags to assign to the bucket."
-  type        = map(string)
-  default     = {}
-}
+#variable "tags" {
+#  description = "(Optional) A mapping of tags to assign to the bucket."
+#  type        = map(string)
+#  default     = {}
+#}
 
 variable "force_destroy" {
   description = "(Optional, Default:false ) A boolean that indicates all objects should be deleted from the bucket so that the bucket can be destroyed without error. These objects are not recoverable."
@@ -100,17 +100,17 @@ variable "request_payer" {
 #  default     = []
 #}
 
-variable "versioning" {
-  description = "Map containing versioning configuration."
-  type        = map(string)
-  default     = {}
-}
+#variable "versioning" {
+#  description = "Map containing versioning configuration."
+#  type        = map(string)
+#  default     = {}
+#}
 
-variable "logging" {
-  description = "Map containing access bucket logging configuration."
-  type        = map(string)
-  default     = {}
-}
+#variable "logging" {
+#  description = "Map containing access bucket logging configuration."
+#  type        = map(string)
+#  default     = {}
+#}
 
 #variable "grant" {
 #  description = "An ACL policy grant. Conflicts with `acl`"
@@ -118,11 +118,11 @@ variable "logging" {
 #  default     = []
 #}
 
-variable "owner" {
-  description = "Bucket owner's display name and ID. Conflicts with `acl`"
-  type        = map(string)
-  default     = {}
-}
+#variable "owner" {
+#  description = "Bucket owner's display name and ID. Conflicts with `acl`"
+#  type        = map(string)
+#  default     = {}
+#}
 
 variable "expected_bucket_owner" {
   description = "The account ID of the expected bucket owner"
