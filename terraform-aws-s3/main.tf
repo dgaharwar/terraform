@@ -692,13 +692,13 @@ data "aws_iam_policy_document" "require_latest_tls" {
       identifiers = ["*"]
     }
 
-    condition {
-      test     = "NumericLessThan"
-      variable = "s3:TlsVersion"
-      values = [
-        "1"
-      ]
-    }
+#    condition {
+#      test     = "NumericLessThan"
+#      variable = "s3:TlsVersion"
+#      values = [
+#        "1.2"
+#      ]
+#    }
   }
 }
 
