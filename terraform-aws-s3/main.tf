@@ -329,7 +329,7 @@ resource "aws_s3_bucket_lifecycle_configuration" "this" {
 
       # Max 1 block - filter - with one key argument or a single tag
       dynamic "filter" {
-#        for_each = [for v in try(flatten([rule.value.filter]), []) : v if max(length(keys(v)), length(try(rule.value.filter.tags, rule.value.filter.tag, []))) == 1]
+        for_each = [for v in try(flatten([rule.value.filter]), []) : v if max(length(keys(v)), length(try(rule.value.filter.tags, rule.value.filter.tag, []))) == 1]
 
         content {
           object_size_greater_than = try(filter.value.object_size_greater_than, null)
@@ -349,7 +349,7 @@ resource "aws_s3_bucket_lifecycle_configuration" "this" {
 
       # Max 1 block - filter - with more than one key arguments or multiple tags
       dynamic "filter" {
-#        for_each = [for v in try(flatten([rule.value.filter]), []) : v if max(length(keys(v)), length(try(rule.value.filter.tags, rule.value.filter.tag, []))) > 1]
+        for_each = [for v in try(flatten([rule.value.filter]), []) : v if max(length(keys(v)), length(try(rule.value.filter.tags, rule.value.filter.tag, []))) > 1]
 
         content {
           and {
