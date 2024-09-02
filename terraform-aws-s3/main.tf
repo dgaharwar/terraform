@@ -671,36 +671,36 @@ data "aws_iam_policy_document" "deny_insecure_transport" {
   }
 }
 
-data "aws_iam_policy_document" "require_latest_tls" {
-  count = local.create_bucket && var.attach_require_latest_tls_policy ? 1 : 0
+#data "aws_iam_policy_document" "require_latest_tls" {
+#  count = local.create_bucket && var.attach_require_latest_tls_policy ? 1 : 0
 
-  statement {
-    sid    = "denyOutdatedTLS"
-    effect = "Deny"
+#  statement {
+#    sid    = "denyOutdatedTLS"
+#    effect = "Deny"
 
-    actions = [
-      "s3:*",
-    ]
+#    actions = [
+#      "s3:*",
+#    ]
 
-    resources = [
-      aws_s3_bucket.this[0].arn,
-      "${aws_s3_bucket.this[0].arn}/*",
-    ]
+#    resources = [
+#      aws_s3_bucket.this[0].arn,
+#      "${aws_s3_bucket.this[0].arn}/*",
+#    ]
 
-    principals {
-      type        = "*"
-      identifiers = ["*"]
-    }
+#    principals {
+#      type        = "*"
+#      identifiers = ["*"]
+#    }
 
-    condition {
-      test     = "NumericLessThan"
-      variable = "s3:TlsVersion"
-      values = [
-        "1.2"
-      ]
-    }
-  }
-}
+#    condition {
+#      test     = "NumericLessThan"
+#      variable = "s3:TlsVersion"
+#      values = [
+#        "1.2"
+#      ]
+#    }
+#  }
+#}
 
 #resource "aws_s3_bucket_intelligent_tiering_configuration" "this" {
 #  for_each = { for k, v in local.intelligent_tiering : k => v if local.create_bucket }
