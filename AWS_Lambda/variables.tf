@@ -694,5 +694,5 @@ variable "AWS_SECRET_ACCESS_KEY" {
 variable "region" {
   description = "The AWS region to create resources in"
   type        = string
-  default     = "ap-northeast-1"
+  default     = "us-east-1"
 }
