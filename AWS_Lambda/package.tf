@@ -77,7 +77,7 @@ resource "terraform_data" "archive" {
   depends_on = [local_file.archive_plan]
 }
 
-moved {
-  from = null_resource.archive
-  to   = terraform_data.archive
-}
+#moved {
+#  from = null_resource.archive
+#  to   = terraform_data.archive
+#}
