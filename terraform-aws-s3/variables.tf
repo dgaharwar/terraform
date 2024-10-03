@@ -112,7 +112,7 @@ variable "logging" {
   default     = {}
 }
 
-variable "grants" {
+variable "grant" {
   description = "An ACL policy grant. Conflicts with `acl`"
   type        = any
   default     = []
