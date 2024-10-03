@@ -564,7 +564,7 @@ resource "aws_s3_bucket_lifecycle_configuration" "this" {
 # AWS Load Balancer access log delivery policy
 data "aws_elb_service_account" "this" {
   count = local.create_bucket && var.attach_elb_log_delivery_policy ? 1 : 0
-#}
+}
 
 #data "aws_iam_policy_document" "elb_log_delivery" {
 #  count = local.create_bucket && var.attach_elb_log_delivery_policy ? 1 : 0
