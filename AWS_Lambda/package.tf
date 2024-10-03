@@ -58,7 +58,7 @@ resource "local_file" "archive_plan" {
 }
 
 # Build the zip archive whenever the filename changes.
-resource "dg_resource" "archive" {
+resource "null_resource" "archive" {
   count = var.create && var.create_package ? 1 : 0
 
   triggers = {
