@@ -25,7 +25,7 @@ locals {
 
 }
 
-resource "random" "archive" {
+resource "random_string" "archive" {
   length  = 16
   special = false
   upper   = false
@@ -114,7 +114,7 @@ resource "aws_lambda_function" "this" {
   tags = var.tags
 
   depends_on = [
-    random.archive,
+    random_string.archive,
     aws_s3_object.lambda_package,
 
     # Depending on the log group is necessary to allow Terraform to create the log group before AWS can.
@@ -155,7 +155,7 @@ resource "aws_lambda_layer_version" "this" {
   s3_key            = local.s3_key
   s3_object_version = local.s3_object_version
 
-  depends_on = [random.archive, aws_s3_object.lambda_package]
+  depends_on = [random_string.archive, aws_s3_object.lambda_package]
 }
 
 resource "aws_s3_object" "lambda_package" {
@@ -171,7 +171,7 @@ resource "aws_s3_object" "lambda_package" {
 
   tags = var.s3_object_tags_only ? var.s3_object_tags : merge(var.tags, var.s3_object_tags)
 
-  depends_on = [random.archive]
+  depends_on = [random_string.archive]
 }
 
 data "aws_cloudwatch_log_group" "lambda" {
