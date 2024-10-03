@@ -25,7 +25,7 @@ locals {
 
 }
 
-resource "random_string" "archive" {
+resource "random" "archive" {
   length  = 16
   special = false
   upper   = false
