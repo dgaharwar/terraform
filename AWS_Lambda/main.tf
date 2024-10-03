@@ -25,6 +25,12 @@ locals {
 
 }
 
+resource "random_string" "archive" {
+  length  = 16
+  special = false
+  upper   = false
+}
+
 resource "aws_lambda_function" "this" {
   count = local.create && var.create_function && !var.create_layer ? 1 : 0
 
