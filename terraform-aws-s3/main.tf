@@ -696,7 +696,7 @@ data "aws_iam_policy_document" "require_latest_tls" {
       test     = "NumericLessThan"
       variable = "s3:TlsVersion"
       values = [
-        "1.2"
+        "1"
       ]
     }
   }
