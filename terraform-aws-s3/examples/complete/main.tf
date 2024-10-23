@@ -107,7 +107,7 @@ locals {
         "Effect" : "Allow",
         "Action" : "s3:ListBucket",
         "Resource" : "arn:aws:s3:::${local.bucket_name}",
-        "Principal" : { "AWS" : "${aws_iam_role.example.arn}" }
+        "Principal" : { "AWS" : aws_iam_role.example.arn }
       }
     ]
   })
