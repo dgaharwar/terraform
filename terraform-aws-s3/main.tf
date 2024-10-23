@@ -570,15 +570,15 @@ data "aws_partition" "current" {}
 data "aws_iam_policy_document" "elb_log_delivery" {
   count = local.create_bucket && var.attach_elb_log_delivery_policy ? 1 : 0
 
-  statement {
-    sid = ""
+#  statement {
+#    sid = ""
 
-    principals {
-      type        = "AWS"
+#    principals {
+#      type        = "AWS"
       identifiers = data.aws_elb_service_account.this.*.arn
-    }
+#    }
 
-    effect = "Allow"
+#    effect = "Allow"
 
 #    actions = [
 #      "s3:PutObject",
@@ -587,7 +587,7 @@ data "aws_iam_policy_document" "elb_log_delivery" {
 #    resources = [
 #      "${aws_s3_bucket.this[0].arn}/*",
 #    ]
-  }
+#  }
 }
 
 # ALB/NLB
