@@ -567,28 +567,28 @@ data "aws_partition" "current" {}
 #  count = local.create_bucket && var.attach_elb_log_delivery_policy ? 1 : 0
 #}
 
-#data "aws_iam_policy_document" "elb_log_delivery" {
-#  count = local.create_bucket && var.attach_elb_log_delivery_policy ? 1 : 0
+data "aws_iam_policy_document" "elb_log_delivery" {
+  count = local.create_bucket && var.attach_elb_log_delivery_policy ? 1 : 0
 
-#  statement {
-#    sid = ""
+  statement {
+    sid = ""
 
-#    principals {
-#      type        = "AWS"
-#      identifiers = data.aws_elb_service_account.this.*.arn
-#    }
+    principals {
+      type        = "AWS"
+      identifiers = data.aws_elb_service_account.this.*.arn
+    }
 
-#    effect = "Allow"
+    effect = "Allow"
 
-#    actions = [
-#      "s3:PutObject",
-#    ]
+    actions = [
+      "s3:PutObject",
+    ]
 
-#    resources = [
-#      "${aws_s3_bucket.this[0].arn}/*",
-#    ]
-#  }
-#}
+    resources = [
+      "${aws_s3_bucket.this[0].arn}/*",
+    ]
+  }
+}
 
 # ALB/NLB
 
