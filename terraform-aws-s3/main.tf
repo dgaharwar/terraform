@@ -213,15 +213,15 @@ data "aws_partition" "current" {}
 #  }
 #}
 
-resource "aws_s3_bucket_accelerate_configuration" "this" {
-  count = local.create_bucket && var.acceleration_status != null ? 1 : 0
+#resource "aws_s3_bucket_accelerate_configuration" "this" {
+#  count = local.create_bucket && var.acceleration_status != null ? 1 : 0
 
-  bucket                = aws_s3_bucket.this[0].id
-  expected_bucket_owner = var.expected_bucket_owner
+#  bucket                = aws_s3_bucket.this[0].id
+#  expected_bucket_owner = var.expected_bucket_owner
 
   # Valid values: "Enabled" or "Suspended"
-  status = title(lower(var.acceleration_status))
-}
+#  status = title(lower(var.acceleration_status))
+#}
 
 resource "aws_s3_bucket_request_payment_configuration" "this" {
   count = local.create_bucket && var.request_payer != null ? 1 : 0
