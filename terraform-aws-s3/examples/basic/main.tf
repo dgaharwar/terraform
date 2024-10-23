@@ -21,8 +21,8 @@ module "s3_bucket_01" {
       {
         "Effect" : "Allow",
         "Action" : "s3:ListBucket",
-        "Resource" : "arn:aws:s3:::${"example-${random_integer.this.id}"}",
-        "Principal" : { "AWS" : "${aws_iam_role.example.arn}" }
+        "Resource" : "arn:aws:s3:::example-${random_integer.this.id}",
+        "Principal" : { "AWS" : aws_iam_role.example.arn }
       }
     ]
   })
