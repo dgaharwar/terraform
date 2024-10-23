@@ -580,9 +580,9 @@ data "aws_iam_policy_document" "elb_log_delivery" {
 
     effect = "Allow"
 
-    actions = [
-      "s3:PutObject",
-    ]
+#    actions = [
+#      "s3:PutObject",
+#    ]
 
 #    resources = [
 #      "${aws_s3_bucket.this[0].arn}/*",
