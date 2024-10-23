@@ -612,11 +612,11 @@ data "aws_iam_policy_document" "lb_log_delivery" {
       "${aws_s3_bucket.this[0].arn}/*",
     ]
 
-    condition {
-      test     = "StringEquals"
-      variable = "s3:x-amz-acl"
-      values   = ["bucket-owner-full-control"]
-    }
+    #condition {
+      #test     = "StringEquals"
+      #variable = "s3:x-amz-acl"
+      #values   = ["bucket-owner-full-control"]
+    #}
   }
 
   statement {
@@ -661,13 +661,13 @@ data "aws_iam_policy_document" "deny_insecure_transport" {
       identifiers = ["*"]
     }
 
-    condition {
-      test     = "Bool"
-      variable = "aws:SecureTransport"
-      values = [
-        "false"
-      ]
-    }
+    #condition {
+      #test     = "Bool"
+      #variable = "aws:SecureTransport"
+      #values = [
+        #"false"
+      #]
+    #}
   }
 }
 
@@ -692,13 +692,13 @@ data "aws_iam_policy_document" "require_latest_tls" {
       identifiers = ["*"]
     }
 
-    condition {
-      test     = "NumericLessThan"
-      variable = "s3:TlsVersion"
-      values = [
-        "1.2"
-      ]
-    }
+    #condition {
+      #test     = "NumericLessThan"
+      #variable = "s3:TlsVersion"
+      #values = [
+        #"1.2"
+      #]
+    #}
   }
 }
 
