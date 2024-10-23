@@ -584,9 +584,9 @@ data "aws_iam_policy_document" "elb_log_delivery" {
       "s3:PutObject",
     ]
 
-    resources = [
-      "${aws_s3_bucket.this[0].arn}/*",
-    ]
+#    resources = [
+#      "${aws_s3_bucket.this[0].arn}/*",
+#    ]
   }
 }
 
