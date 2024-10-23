@@ -574,7 +574,7 @@ data "aws_iam_policy_document" "elb_log_delivery" {
 
     principals {
       type        = "AWS"
-      identifiers = data.aws_elb_service_account.this.*.arn
+      identifiers = [for account in data.aws_elb_service_account.this : account.arn]
     }
 
     effect = "Allow"
