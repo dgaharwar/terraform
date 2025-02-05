@@ -58,7 +58,7 @@ resource "local_file" "archive_plan" {
 }
 
 # Build the zip archive whenever the filename changes.
-resource "terraform_data" "archive" {
+resource "null_resource" "archive" {
   count = var.create && var.create_package ? 1 : 0
 
   triggers_replace = {
@@ -76,8 +76,3 @@ resource "terraform_data" "archive" {
 
   depends_on = [local_file.archive_plan]
 }
-
-#moved {
-#  from = null_resource.archive
-#  to   = terraform_data.archive
-#}
