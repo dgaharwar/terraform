@@ -61,10 +61,10 @@ resource "local_file" "archive_plan" {
 resource "null_resource" "archive" {
   count = var.create && var.create_package ? 1 : 0
 
-  triggers_replace = {
-    filename  = data.external.archive_prepare[0].result.filename
-    timestamp = data.external.archive_prepare[0].result.timestamp
-  }
+#  triggers_replace = {
+#    filename  = data.external.archive_prepare[0].result.filename
+#    timestamp = data.external.archive_prepare[0].result.timestamp
+#  }
 
   provisioner "local-exec" {
     interpreter = [
