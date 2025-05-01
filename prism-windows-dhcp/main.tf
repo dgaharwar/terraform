@@ -113,51 +113,51 @@ resource "nutanix_virtual_machine" "vm" {
 #  }
 }
 
-resource "nutanix_virtual_machine" "vm2" {
+#resource "nutanix_virtual_machine" "vm2" {
   #  count                = 1
-  name                 = format("%s.%s",var.t_vm_name,"2")
-  description          = var.t_vm_description
-  provider             = nutanix
-  cluster_uuid         = data.nutanix_cluster.cluster.id
-  num_vcpus_per_socket = var.t_num_vcpus_per_socket
-  num_sockets          = var.t_num_sockets
-  memory_size_mib      = var.t_memory_size_mib
-  boot_type            = var.t_boot_type
+#  name                 = format("%s.%s",var.t_vm_name,"2")
+#  description          = var.t_vm_description
+#  provider             = nutanix
+#  cluster_uuid         = data.nutanix_cluster.cluster.id
+#  num_vcpus_per_socket = var.t_num_vcpus_per_socket
+#  num_sockets          = var.t_num_sockets
+#  memory_size_mib      = var.t_memory_size_mib
+#  boot_type            = var.t_boot_type
 
   # Zet categorien op Nutanix
 
   # koppel de NIC, op basis van het ID van de variabele
-  nic_list {
+#  nic_list {
     # subnet_reference is saying, which VLAN/network do you want to attach here?
     # Networks, Subnets, edit, UUID
-    subnet_uuid = data.nutanix_subnet.subnet.id
-  }
+#    subnet_uuid = data.nutanix_subnet.subnet.id
+#  }
 
   # Unattend.xml op basis van template
-  guest_customization_sysprep = {
-    install_type = "PREPARED"
-    unattend_xml = base64encode(data.template_file.unattend2.rendered)
-  }
+#  guest_customization_sysprep = {
+#    install_type = "PREPARED"
+#    unattend_xml = base64encode(data.template_file.unattend2.rendered)
+#  }
 
   # image referentie die uitgerold wordt
-  disk_list {
-    data_source_reference = {
-      kind = "image"
-      uuid = data.nutanix_image.image.id
-    }
-  }
+#  disk_list {
+#    data_source_reference = {
+#      kind = "image"
+#      uuid = data.nutanix_image.image.id
+#    }
+#  }
 
   # diskgrootte zetten van een 2e disk
-  disk_list {
+#  disk_list {
     #disk_size_bytes = 40 * 1024 * 1024 * 1024
-    disk_size_bytes = var.t_disk_2_size
-    device_properties {
-      device_type = "DISK"
-      disk_address = {
-        "adapter_type" = "SCSI"
-        "device_index" = "1"
-      }
-    }
+#    disk_size_bytes = var.t_disk_2_size
+#    device_properties {
+#      device_type = "DISK"
+#      disk_address = {
+#        "adapter_type" = "SCSI"
+#        "device_index" = "1"
+#      }
+#    }
 
     # # refereer naar de opslag locatie waar de VM wordt gekopieerd
     # storage_config {
