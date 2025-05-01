@@ -166,13 +166,13 @@ resource "nutanix_virtual_machine" "vm" {
     #     uuid = var.nutanix_storagecontainer_uuid
     #   }
     # }
-  }
+#  }
 #  provisioner "local-exec" {
 #    command = <<EOT
 #    echo "not doing anything anymore"
 #    EOT
 #  }
-}
+#}
 
 
 output "VMID" {
