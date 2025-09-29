@@ -29,6 +29,37 @@ output "debug_categories_list" {
   value = local.categories_list
 }
 
+provider "nutanix" {
+  username     = var.nutanix_username
+  password     = var.nutanix_password
+  endpoint     = var.nutanix_endpoint
+  insecure     = true
+  port         = 9440
+}
+
+data "nutanix_cluster" "cluster" {
+  name = "labs-nutanix-aws-2"
+}
+
+data "nutanix_subnet" "subnet" {
+  subnet_name = "PC-Net"
+}
+
+data "nutanix_image" "image" {
+  image_name = var.nutanix_imagename
+}
+
+locals {
+  temp = var.vm_categories == "null" ? "" : var.vm_categories
+  trimmed = trim(local.temp, "[]")
+  cleaned = replace(local.trimmed, " ", "")
+  categories_list = local.cleaned != "" ? split(",", local.cleaned) : []
+}
+
+output "debug_categories_list" {
+  value = local.categories_list
+}
+
 resource "nutanix_virtual_machine" "vm" {
   name                 = lower(var.vm_name)
   description          = "VM created via Terraform"
@@ -66,5 +97,4 @@ resource "nutanix_virtual_machine" "vm" {
     ignore_changes = [ disk_list[0].data_source_reference.uuid ]
   }
 }
-
 
