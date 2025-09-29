@@ -1,11 +1,12 @@
 provider "nutanix" {
-  username     = var.nutanix_username
-  password     = var.nutanix_password
-  endpoint     = var.nutanix_endpoint
-  insecure     = true
-  port         = 9440
+  username = var.nutanix_username
+  password = var.nutanix_password
+  endpoint = var.nutanix_endpoint
+  insecure = true
+  port     = 9440
 }
 
+# Data sources
 data "nutanix_cluster" "cluster" {
   name = "labs-nutanix-aws-2"
 }
@@ -18,48 +19,12 @@ data "nutanix_image" "image" {
   image_name = var.nutanix_imagename
 }
 
-locals {
-  temp = var.vm_categories == "null" ? "" : var.vm_categories
-  trimmed = trim(local.temp, "[]")
-  cleaned = replace(local.trimmed, " ", "")
-  categories_list = local.cleaned != "" ? split(",", local.cleaned) : []
+# Debug output (optional, can be removed later)
+output "debug_vm_categories" {
+  value = var.vm_categories
 }
 
-output "debug_categories_list" {
-  value = local.categories_list
-}
-
-provider "nutanix" {
-  username     = var.nutanix_username
-  password     = var.nutanix_password
-  endpoint     = var.nutanix_endpoint
-  insecure     = true
-  port         = 9440
-}
-
-data "nutanix_cluster" "cluster" {
-  name = "labs-nutanix-aws-2"
-}
-
-data "nutanix_subnet" "subnet" {
-  subnet_name = "PC-Net"
-}
-
-data "nutanix_image" "image" {
-  image_name = var.nutanix_imagename
-}
-
-locals {
-  temp = var.vm_categories == "null" ? "" : var.vm_categories
-  trimmed = trim(local.temp, "[]")
-  cleaned = replace(local.trimmed, " ", "")
-  categories_list = local.cleaned != "" ? split(",", local.cleaned) : []
-}
-
-output "debug_categories_list" {
-  value = local.categories_list
-}
-
+# Virtual Machine resource
 resource "nutanix_virtual_machine" "vm" {
   name                 = lower(var.vm_name)
   description          = "VM created via Terraform"
@@ -69,17 +34,9 @@ resource "nutanix_virtual_machine" "vm" {
   num_sockets          = 1
   memory_size_mib      = 4096
 
-   dynamic "categories" {
-    # If categories_list has 0 items skip entire dynamic
-    for_each = length(local.categories_list) > 0 ? local.categories_list : []
-    
-    # for debugging to skip dynamic always
-    #for_each = length(local.categories_list) > 0 ? [] : []
-
-      content {
-        name = split(":", categories.value)[0]
-        value = split(":", categories.value)[1]
-      }
+  # Categories mapped directly from Morpheus option list
+  categories = {
+    for cat in var.vm_categories : cat.name => cat.value
   }
 
   nic_list {
@@ -92,9 +49,8 @@ resource "nutanix_virtual_machine" "vm" {
       uuid = data.nutanix_image.image.id
     }
   }
- 
+
   lifecycle {
     ignore_changes = [ disk_list[0].data_source_reference.uuid ]
   }
 }
-
