@@ -24,6 +24,10 @@ output "debug_vm_categories" {
   value = var.vm_categories
 }
 
+locals {
+  decoded_categories = jsondecode(var.vm_categories)
+}
+
 # Virtual Machine resource
 resource "nutanix_virtual_machine" "vm" {
   name                 = lower(var.vm_name)
@@ -35,7 +39,7 @@ resource "nutanix_virtual_machine" "vm" {
   memory_size_mib      = 4096
 
   dynamic "categories" {
-    for_each = var.vm_categories
+    for_each = local.decoded_categories
     content {
       name  = categories.value.name
       value = categories.value.value
@@ -57,4 +61,5 @@ resource "nutanix_virtual_machine" "vm" {
     ignore_changes = [ disk_list[0].data_source_reference.uuid ]
   }
 }
+
 
