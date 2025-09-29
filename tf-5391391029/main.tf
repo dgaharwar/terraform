@@ -34,9 +34,12 @@ resource "nutanix_virtual_machine" "vm" {
   num_sockets          = 1
   memory_size_mib      = 4096
 
-  # Categories mapped directly from Morpheus option list
-  categories = {
-    for cat in var.vm_categories : cat.name => cat.value
+  dynamic "categories" {
+    for_each = var.vm_categories
+    content {
+      name  = categories.value.name
+      value = categories.value.value
+    }
   }
 
   nic_list {
@@ -54,3 +57,4 @@ resource "nutanix_virtual_machine" "vm" {
     ignore_changes = [ disk_list[0].data_source_reference.uuid ]
   }
 }
+
