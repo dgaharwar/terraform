@@ -6,31 +6,12 @@ provider "nutanix" {
   port         = 9440
 }
 
-data "nutanix_clusters" "clusters" {
-}
-
-locals {
-  selected_cluster = [
-    for cluster in data.nutanix_clusters.clusters.entities :
-    cluster if cluster.name == var.cluster
-  ][0] 
-}
-
-data "nutanix_subnets" "subnets" {
- metadata {
-   filter = "cluster_name==${var.cluster}"
- }
-}
-
-locals {
-  selected_subnet = [
-    for subnet in data.nutanix_subnets.subnets.entities :
-     subnet if subnet.name == var.vlan
-    ]
+data "nutanix_cluster" "cluster" {
+  name = "labs-nutanix-aws-2"
 }
 
 data "nutanix_subnet" "subnet" {
-  subnet_id = local.selected_subnet[0].metadata.uuid
+  subnet_name = "PC-Net"
 }
 
 data "nutanix_image" "image" {
@@ -50,11 +31,12 @@ output "debug_categories_list" {
 
 resource "nutanix_virtual_machine" "vm" {
   name                 = lower(var.vm_name)
+  description          = "VM created via Terraform"
   provider             = nutanix
-  cluster_uuid         = local.selected_cluster.metadata.uuid
+  cluster_uuid         = data.nutanix_cluster.cluster.id
   num_vcpus_per_socket = 2
   num_sockets          = 1
-  memory_size_mib      = 4
+  memory_size_mib      = 4096
 
    dynamic "categories" {
     # If categories_list has 0 items skip entire dynamic
@@ -84,4 +66,5 @@ resource "nutanix_virtual_machine" "vm" {
     ignore_changes = [ disk_list[0].data_source_reference.uuid ]
   }
 }
+
 
