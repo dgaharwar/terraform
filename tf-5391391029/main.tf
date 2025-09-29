@@ -45,10 +45,11 @@ resource "nutanix_virtual_machine" "vm" {
 dynamic "categories" {
   for_each = local.categories_list
   content {
-    name  = split(":", trim(categories.value))[0]
-    value = split(":", trim(categories.value))[1]
+    name  = split(":", trim(categories.value, " "))[0]
+    value = split(":", trim(categories.value, " "))[1]
   }
 }
+
 
   nic_list {
     subnet_uuid = data.nutanix_subnet.subnet.id
@@ -65,5 +66,6 @@ dynamic "categories" {
     ignore_changes = [ disk_list[0].data_source_reference.uuid ]
   }
 }
+
 
 
