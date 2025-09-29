@@ -1,5 +1,5 @@
 #vm_description    = "<%=customOptions['description']%>"
-vm_name           = "<%=customOptions['hostname']%>"
+vm_name           = "<%=customOptions['vm_name']%>"
 #hostname          = "<%=customOptions['hostname']%>"
 #num_sockets       = "<%=customOptions['vcpu']%>"
 #memory_size_mib   = "<%=customOptions['vmem']%>"
@@ -28,4 +28,5 @@ vm_categories     = "<%=customOptions['categories']%>"
 #windows_admin_username
 #windows_admin_password
 #windows_admin_unenc
+
 
