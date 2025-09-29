@@ -89,5 +89,4 @@ resource "nutanix_virtual_machine" "vm" {
   lifecycle {
     ignore_changes = [ disk_list[0].data_source_reference.uuid ]
   }
- }
 }
