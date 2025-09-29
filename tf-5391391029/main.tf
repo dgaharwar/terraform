@@ -19,13 +19,16 @@ data "nutanix_image" "image" {
   image_name = var.nutanix_imagename
 }
 
-# Debug output (optional, can be removed later)
-output "debug_vm_categories" {
-  value = var.vm_categories
+locals {
+  temp = var.vm_categories == "null" ? "" : var.vm_categories
+  trimmed = trim(local.temp, "[]")
+  cleaned = replace(local.trimmed, " ", "")
+  categories_list = local.cleaned != "" ? split(",", local.cleaned) : []
 }
 
-locals {
-  decoded_categories = jsondecode(var.vm_categories)
+
+output "debug_categories_list" {
+  value = local.categories_list
 }
 
 # Virtual Machine resource
@@ -38,12 +41,17 @@ resource "nutanix_virtual_machine" "vm" {
   num_sockets          = 1
   memory_size_mib      = 4096
 
-  dynamic "categories" {
-    for_each = local.decoded_categories
-    content {
-      name  = categories.value.name
-      value = categories.value.value
-    }
+   dynamic "categories" {
+    # If categories_list has 0 items skip entire dynamic
+    for_each = length(local.categories_list) > 0 ? local.categories_list : []
+    
+    # for debugging to skip dynamic always
+    #for_each = length(local.categories_list) > 0 ? [] : []
+
+      content {
+        name = split(":", categories.value)[0]
+        value = split(":", categories.value)[1]
+      }
   }
 
   nic_list {
@@ -61,5 +69,6 @@ resource "nutanix_virtual_machine" "vm" {
     ignore_changes = [ disk_list[0].data_source_reference.uuid ]
   }
 }
+
 
 
