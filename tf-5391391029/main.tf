@@ -23,10 +23,9 @@ locals {
   # Remove brackets from the string
   raw_categories = replace(replace(var.vm_categories, "[", ""), "]", "")
 
-  # Split into a list only if non-empty, otherwise empty list
-  categories_list = length(trim(local.raw_categories)) > 0 ? split(",", local.raw_categories) : []
+  # Trim spaces from start/end of the string and split into list
+  categories_list = length(trim(local.raw_categories, " ")) > 0 ? split(",", local.raw_categories) : []
 }
-
 
 # Debug output
 output "debug_categories_list" {
@@ -66,4 +65,5 @@ dynamic "categories" {
     ignore_changes = [ disk_list[0].data_source_reference.uuid ]
   }
 }
+
 
