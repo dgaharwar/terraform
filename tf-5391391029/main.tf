@@ -37,10 +37,6 @@ data "nutanix_image" "image" {
   image_name = var.nutanix_imagename
 }
 
-data "template_file" "cloud_init"{
-  template  = file ( "${path.module}/${var.cloud_init}"  )
-}
-
 locals {
   temp = var.vm_categories == "null" ? "" : var.vm_categories
   trimmed = trim(local.temp, "[]")
@@ -88,3 +84,4 @@ resource "nutanix_virtual_machine" "vm" {
     ignore_changes = [ disk_list[0].data_source_reference.uuid ]
   }
 }
+
