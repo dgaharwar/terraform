@@ -27,11 +27,6 @@ variable "vm_name" {
   sensitive   = false
 }
 
-variable "cloud_init" {
-  description = "Linux cloud init filenaam"
-  type = string
-}
-
 variable "vm_categories" {
   description = "Een string van categorien in key/value split op comma"
   type = string
