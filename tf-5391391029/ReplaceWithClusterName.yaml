@@ -1,5 +1,4 @@
 ---
 nutanix_endpoint: 
 nutanix_insecure: true
-nutanix_wait_timeout: 60
 nutanix_port: 9440
