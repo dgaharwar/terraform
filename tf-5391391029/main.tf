@@ -19,9 +19,12 @@ data "nutanix_image" "image" {
   image_name = var.nutanix_imagename
 }
 
-# Decode categories from Morpheus JSON string
+# Clean and split the unquoted category strings from Morpheus
 locals {
-  categories_list = var.vm_categories != "null" ? jsondecode(var.vm_categories) : []
+  # Remove brackets and split on comma
+  raw_categories = replace(replace(var.vm_categories, "[", ""), "]", "")
+  categories_list = length(trim(local.raw_categories)) > 0 ?
+    split(",", local.raw_categories) : []
 }
 
 # Debug output
@@ -29,7 +32,7 @@ output "debug_categories_list" {
   value = local.categories_list
 }
 
-# Virtual Machine resource
+# VM Resource
 resource "nutanix_virtual_machine" "vm" {
   name                 = lower(var.vm_name)
   description          = "VM created via Terraform"
@@ -42,8 +45,9 @@ resource "nutanix_virtual_machine" "vm" {
   dynamic "categories" {
     for_each = local.categories_list
     content {
-      name  = split(":", categories.value)[0]
-      value = split(":", categories.value)[1]
+      # Trim whitespace and split on colon
+      name  = split(":", trim(categories.value))[0]
+      value = split(":", trim(categories.value))[1]
     }
   }
 
