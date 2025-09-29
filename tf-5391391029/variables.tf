@@ -3,6 +3,12 @@ variable "cluster" {
   type        = string
 }
 
+variable "nutanix_endpoint" {
+  description = "IP/Hostname of Nutanix Cluster"
+  type        = string
+  sensitive   = false
+}
+
 variable "nutanix_username" {
   description = "Nutanix user"
   type        = string
@@ -31,3 +37,4 @@ variable "vm_categories" {
   description = "Een string van categorien in key/value split op comma"
   type = string
 }
+
