@@ -1,9 +1,9 @@
 output "vm_id" {
-  value = nutanix_virtual_machine.test_vm.id
+  value = nutanix_virtual_machine.vm.id
 }
 
 output "vm_name" {
-  value = nutanix_virtual_machine.test_vm.name
+  value = nutanix_virtual_machine.vm.name
 }
 
 output "categories" {
