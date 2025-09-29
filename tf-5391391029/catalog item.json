@@ -1,0 +1,56 @@
+
+ "group": {
+  "id": "<%=customOptions.groups%>",
+  "name": "<%=customOptions.groups%>"
+ },
+ "cloud": {
+  "id": "<%=customOptions.cloud.split(/[-]/)[0]%>"
+ },
+ "type": "xxxxxxxxxxxxxxxxxxxxxxx",
+ "config": {
+  "createUser": false,
+  "isEC2": false,
+  "isVpcSelectable": true,
+  "customOptions": {
+   "categories": <%=customOptions.categories%>,
+   "cloud": "<%=customOptions.cloud%>",
+   "cluster": "<%=customOptions.cluster%>",
+   "description": "<%=customOptions.description%>",
+   "dnsDomain": "<%=customOptions.dnsDomain%>",
+   "extraDisksizes": "<%=customOptions.extraDisksizes%>",
+   "groups": "<%=customOptions.groups%>",
+   "hostname": "<%=customOptions.hostname%>",
+   "vcpu": "<%=customOptions.vcpu%>",
+   "vmem": "<%=customOptions.vmem%>",
+   "vlan": "<%=customOptions.vlan%>",
+   "storagecontainer": "SelfServiceContainer"
+  },
+  "imageId": xxx,
+  "resourcePoolId": "xxxxxxx",
+  "poolProviderType": null
+ },
+ "name": "<%=customOptions.hostname%>",
+ "environment": "1",
+ "volumes": [
+  {
+   "rootVolume": true,
+   "name": "root",
+   "maxStorage": 0,
+   "size": 0,
+   "volumeCustomizable": false,
+   "readonlyName": false,
+   "storageType": 1,
+   "maxIOPS": null,
+   "datastoreId": xx,
+   "vId": xxx
+  }
+ ],
+ "instance": {
+  "userGroup": {
+   "id": ""
+  }
+ },
+ "defaultExpandAdvanced": false,
+ "hostName": "<%=customOptions.hostname%>",
+ "layout": {
+  "id": xxx,
