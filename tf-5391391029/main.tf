@@ -19,13 +19,14 @@ data "nutanix_image" "image" {
   image_name = var.nutanix_imagename
 }
 
-# Clean and split the unquoted category strings from Morpheus
 locals {
-  # Remove brackets and split on comma
+  # Remove brackets from the string
   raw_categories = replace(replace(var.vm_categories, "[", ""), "]", "")
-  categories_list = length(trim(local.raw_categories)) > 0 ?
-    split(",", local.raw_categories) : []
+
+  # Split into a list only if non-empty, otherwise empty list
+  categories_list = length(trim(local.raw_categories)) > 0 ? split(",", local.raw_categories) : []
 }
+
 
 # Debug output
 output "debug_categories_list" {
@@ -42,14 +43,13 @@ resource "nutanix_virtual_machine" "vm" {
   num_sockets          = 1
   memory_size_mib      = 4096
 
-  dynamic "categories" {
-    for_each = local.categories_list
-    content {
-      # Trim whitespace and split on colon
-      name  = split(":", trim(categories.value))[0]
-      value = split(":", trim(categories.value))[1]
-    }
+dynamic "categories" {
+  for_each = local.categories_list
+  content {
+    name  = split(":", trim(categories.value))[0]
+    value = split(":", trim(categories.value))[1]
   }
+}
 
   nic_list {
     subnet_uuid = data.nutanix_subnet.subnet.id
@@ -66,3 +66,4 @@ resource "nutanix_virtual_machine" "vm" {
     ignore_changes = [ disk_list[0].data_source_reference.uuid ]
   }
 }
+
