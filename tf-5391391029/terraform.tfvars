@@ -1,5 +1,6 @@
-#vm_description    = "<%=customOptions['description']%>"
 vm_name           = "<%=customOptions['vm_name']%>"
+vm_categories     = "<%=customOptions['categories']%>"
+#vm_description    = "<%=customOptions['description']%>"
 #hostname          = "<%=customOptions['hostname']%>"
 #num_sockets       = "<%=customOptions['vcpu']%>"
 #memory_size_mib   = "<%=customOptions['vmem']%>"
@@ -7,7 +8,6 @@ vm_name           = "<%=customOptions['vm_name']%>"
 #cluster           = "<%=customOptions['cluster']%>"
 #vlan              = "<%=customOptions['vlan']%>"
 #extradisksizes    = "<%=customOptions['extraDisksizes']%>"
-vm_categories     = "<%=customOptions['categories']%>"
 
 # Defaults en glue
 #boot_type         = "SECURE_BOOT"
@@ -28,5 +28,6 @@ vm_categories     = "<%=customOptions['categories']%>"
 #windows_admin_username
 #windows_admin_password
 #windows_admin_unenc
+
 
 
