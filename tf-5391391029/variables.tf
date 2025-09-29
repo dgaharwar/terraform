@@ -52,10 +52,10 @@ variable "vm_categories" {
 #  type = string
 #}
 
-variable "unattend" {
-  description = "Windows unattend.xml filenaam"
-  type = string
-}
+#variable "unattend" {
+#  description = "Windows unattend.xml filenaam"
+#  type = string
+#}
 
 #variable "infoblox_username" {
 #  description = "Infoblox user"
@@ -162,4 +162,5 @@ variable "cloud_init" {
   description = "Linux cloud init filenaam"
   type = string
 }
+
 
