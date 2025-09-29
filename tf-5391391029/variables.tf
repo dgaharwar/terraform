@@ -1,8 +1,3 @@
-variable "cluster" {
-  description = "Choose Cluster"
-  type        = string
-}
-
 variable "nutanix_endpoint" {
   description = "IP/Hostname of Nutanix Cluster"
   type        = string
@@ -37,4 +32,5 @@ variable "vm_categories" {
   description = "Een string van categorien in key/value split op comma"
   type = string
 }
+
 
