@@ -77,8 +77,6 @@ resource "nutanix_virtual_machine" "vm" {
     subnet_uuid = data.nutanix_subnet.subnet.id
   }
 
-   guest_customization_cloud_init_user_data = ( var.os_type == "redhat" ?  local.guest_customization_cloud_init_rendered : null )
-
   disk_list {
     data_source_reference = {
       kind = "image"
