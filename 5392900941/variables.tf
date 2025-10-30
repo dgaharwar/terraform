@@ -10,10 +10,6 @@ variable "nutanix_endpoint" {
   type = string
 }
 
-variable "port" {
-  type = string
-}
-
 variable "vm_name" {
   type    = string
   default = ""
