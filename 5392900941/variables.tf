@@ -18,3 +18,4 @@ variable "vm_name" {
 variable "nutanix_imagename" {
   type    = string
   default = ""
+}
