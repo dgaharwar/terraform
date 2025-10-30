@@ -8,9 +8,9 @@ terraform {
 }
 
 provider "nutanix" {
-  username     = var.username
-  password     = var.password
-  endpoint     = var.endpoint
+  username     = var.nutanix_username
+  password     = var.nutanix_password
+  endpoint     = var.nutanix_endpoint
   port         = var.port
   insecure     = true
   wait_timeout = 10
