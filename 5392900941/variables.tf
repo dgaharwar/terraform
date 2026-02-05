@@ -14,8 +14,3 @@ variable "vm_name" {
   type    = string
   default = ""
 }
-
-variable "nutanix_imagename" {
-  type    = string
-  default = ""
-}
