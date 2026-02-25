@@ -2,7 +2,7 @@ variable "ovh_access_token" {
   type = object({
     app_key      = string
     app_secret   = string
-    consumer_key = string
+    consumer_key = optional(string)
   })
   description = "OVH API application key/secret and consumer key. Created using [https://www.ovh.com/auth/api/createToken?GET=/*&POST=/cloud/project/3119ad56589a4417a0c28dabd237878b/user*&PUT=/cloud/project/3119ad56589a4417a0c28dabd237878b/user*&DELETE=/cloud/project/3119ad56589a4417a0c28dabd237878b/user*&DELETE=/cloud/project/3119ad56589a4417a0c28dabd237878b/region/GRA11/gateway*&POST=/cloud/project/3119ad56589a4417a0c28dabd237878b/region/GRA11/network/*]"
   default     = null
@@ -46,3 +46,4 @@ variable "public_key" {
   type        = string
   description = "Existing SSH public key to be able to connect to the vm(s)."
 }
+
