@@ -26,10 +26,11 @@ provider "ovh" {
 }
 
 provider "openstack" {
-  auth_url  = "https://auth.cloud.ovh.net/"
+  auth_url  = "https://10.32.24.160:5000"
   region    = var.ovh_region
   user_name = var.project_user_username
   password  = var.project_user_password
   tenant_id = var.project_id
 }
+
 
