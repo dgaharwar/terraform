@@ -1,5 +1,5 @@
 module "user_project" {
-  source = "./modules/users"
+  source = "../../modules/users"
   # source     = "git::https://morpheus-sensitive-int-mastertenant-ovhlanding:glpat-Y7cYt1vr9Hv90AOGjoQaiG86MQp1OjhtCA.01.0y1k5yq53@gitlab.apsys-airbus.com/oneplatform/clouds/small-ovh-landing.git//modules/users?ref=MAGL/integration-morpheus2"
   project_id = var.project_id
   #roles      = ["administrator"]
@@ -26,3 +26,4 @@ resource "openstack_images_image_access_accept_v2" "accepted_images" {
   status     = "accepted"
   depends_on = [module.user_project]
 }
+
