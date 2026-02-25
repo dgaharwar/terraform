@@ -1,6 +1,6 @@
 terraform {
   # Need for_each on providers, available in OpenTofu v1.9.0
-  required_version = ">= 1.9.0"
+  #required_version = ">= 1.9.0"
   required_providers {
     openstack = {
       source  = "terraform-provider-openstack/openstack"
@@ -32,3 +32,4 @@ provider "openstack" {
   password  = var.project_user_password
   tenant_id = var.project_id
 }
+
