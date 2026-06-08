@@ -41,6 +41,7 @@ variable "storagecontainer" {
    description = "Naam van de storagecontainer welke je wil gebruiken"
    type = string
    default = "SelfServiceContainer"
+}
 
 variable "dns_domain" {
   description = "DNS domein"
