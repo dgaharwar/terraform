@@ -1,0 +1,25 @@
+# Paste into catalog item appSpec after Configure, or use as reference for manual edit.
+# REPLACE placeholders before use.
+
+id: REPLACE_WITH_APP_TEMPLATE_ID
+name: lab-5403063369-app
+type: morpheus
+group:
+  id: REPLACE_WITH_GROUP_ID
+environment: dev
+tiers:
+  Default:
+    instances:
+      - instance:
+          type: REPLACE_WITH_INSTANCE_TYPE_CODE
+          cloud: REPLACE_WITH_CLOUD_NAME
+          layout:
+            id: REPLACE_WITH_LAYOUT_ID
+        config:
+          customOptions:
+            cloud: "3-LabCloud"
+            hostname: "lab-vm-01"
+        plan:
+          id: REPLACE_WITH_PLAN_ID
+        group:
+          id: REPLACE_WITH_GROUP_ID

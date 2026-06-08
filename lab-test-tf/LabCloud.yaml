@@ -1,0 +1,4 @@
+---
+# Loaded when cloud = "<zoneId>-LabCloud"  →  split gives "LabCloud" → LabCloud.yaml
+label: "Lab test cloud config"
+description: "Minimal stand-in for customer ReplaceWithClusterName.yaml"

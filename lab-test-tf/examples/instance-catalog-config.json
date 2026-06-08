@@ -1,0 +1,25 @@
+{
+  "group": {
+    "id": "<%=customOptions.groups%>"
+  },
+  "cloud": {
+    "id": "<%=customOptions.cloud.split(/[-]/)[0]%>"
+  },
+  "type": "REPLACE_WITH_INSTANCE_TYPE_CODE",
+  "name": "<%=customOptions.hostname%>",
+  "hostName": "<%=customOptions.hostname%>",
+  "environment": "1",
+  "config": {
+    "createUser": false,
+    "customOptions": {
+      "cloud": "<%=customOptions.cloud%>",
+      "hostname": "<%=customOptions.hostname%>"
+    }
+  },
+  "layout": {
+    "id": "REPLACE_WITH_LAYOUT_ID"
+  },
+  "plan": {
+    "id": "REPLACE_WITH_PLAN_ID"
+  }
+}
