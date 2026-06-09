@@ -6,8 +6,8 @@ variable "privcloud" {
   type        = string
 }
 
-variable "privcloud" {
-  description = "VM hostname — included so tfvars ERB pattern matches customer layout"
+variable "privgroup" {
+  description = "Group selector — included so tfvars ERB pattern matches customer layout"
   type        = string
   default     = "lab-test"
 }
