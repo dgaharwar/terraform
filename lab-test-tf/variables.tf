@@ -6,7 +6,7 @@ variable "privcloud" {
   type        = string
 }
 
-variable "hostname" {
+variable "privcloud" {
   description = "VM hostname — included so tfvars ERB pattern matches customer layout"
   type        = string
   default     = "lab-test"
