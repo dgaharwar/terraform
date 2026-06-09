@@ -14,6 +14,6 @@ output "debug_cloud_data" {
   value = local.cloud_data
 }
 
-output "debug_hostname" {
-  value = var.hostname
+output "debug_group" {
+  value = var.privgroup
 }
