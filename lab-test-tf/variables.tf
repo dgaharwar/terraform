@@ -2,12 +2,12 @@
 # variable name in their repo is "cloud". This repro uses "cloud".
 
 variable "privcloud" {
-  description = "Glue: cloud selector — must be zoneId-cloudName (e.g. 3-LabCloud)"
+  description = "Glue: cloud selector — must be zoneId-cloudName (e.g. 1-Demo)"
   type        = string
 }
 
 variable "privgroup" {
   description = "Group selector — included so tfvars ERB pattern matches customer layout"
   type        = string
-  default     = "lab-test"
+  default     = "Demo"
 }
