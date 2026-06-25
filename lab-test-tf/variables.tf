@@ -4,7 +4,6 @@
 variable "cloud" {
   description = "Glue: cloud selector — must be zoneId-cloudName (e.g. 1-Demo)"
   type        = string
-  default     = "44290-dgHpe"
 }
 
 variable "groups" {
