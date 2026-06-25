@@ -6,7 +6,7 @@ variable "cloud" {
   type        = string
 }
 
-variable "group" {
+variable "groups" {
   description = "Group selector — included so tfvars ERB pattern matches customer layout"
   type        = string
 }
