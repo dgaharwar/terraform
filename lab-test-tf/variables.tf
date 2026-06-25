@@ -9,4 +9,5 @@ variable "cloud" {
 variable "groups" {
   description = "Group selector — included so tfvars ERB pattern matches customer layout"
   type        = string
+  default     = "44290-dgHpe"
 }
