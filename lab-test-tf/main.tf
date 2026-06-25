@@ -15,5 +15,5 @@ output "debug_cloud_data" {
 }
 
 output "debug_group" {
-  value = var.group
+  value = var.groups
 }
