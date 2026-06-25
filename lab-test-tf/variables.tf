@@ -7,7 +7,7 @@ variable "clouds" {
   default     = "26324-QA VMware"
 }
 
-variable "group" {
+variable "groups" {
   description = "Group selector — included so tfvars ERB pattern matches customer layout"
   type        = string
   default     = "deepti"
