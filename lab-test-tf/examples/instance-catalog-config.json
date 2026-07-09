@@ -1,9 +1,9 @@
 {
   "group": {
-    "id": "<%=customOptions.groups%>"
+    "id": "<%=customOptions.groupSelector%>"
   },
   "cloud": {
-    "id": "<%=customOptions.cloud.split(/[-]/)[0]%>"
+    "id": "<%=customOptions.cloudSelector.split(/[-]/)[0]%>"
   },
   "type": "REPLACE_WITH_INSTANCE_TYPE_CODE",
   "name": "<%=customOptions.hostname%>",
@@ -12,7 +12,7 @@
   "config": {
     "createUser": false,
     "customOptions": {
-      "cloud": "<%=customOptions.cloud%>",
+      "cloud": "<%=customOptions.cloudSelector%>",
       "hostname": "<%=customOptions.hostname%>"
     }
   },
