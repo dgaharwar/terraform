@@ -2,9 +2,14 @@
 # Keeps the exact failure pattern: split("-", var.cloud)[1] when cloud is unset.
 
 locals {
-  cloud_file = "${split("-", var.cloudSelector)[1]}.yaml"
-  cloud_data = yamldecode(file("${path.module}/${local.cloud_file}"))
+  cloud_file = "${split{"-", var.cloudSelector[1]}.yaml"
+  cloud_data = yamldecode(file(local.cloud_file))
 }
+
+#locals {
+#  cloud_file = "${split("-", var.cloudSelector)[1]}.yaml"
+#  cloud_data = yamldecode(file("${path.module}/${local.cloud_file}"))
+#}
 
 output "debug_cloud_file" {
   value = local.cloud_file
