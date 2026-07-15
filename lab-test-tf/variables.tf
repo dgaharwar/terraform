@@ -4,7 +4,7 @@
 variable "cloudSelector" {
   description = "Glue: cloud selector — must be zoneId-cloudName (e.g. 1-Demo)"
   type        = string
-  default     = "26324-QA VMware"
+  default     = "1-QA VMware"
 }
 
 variable "groupSelector" {
