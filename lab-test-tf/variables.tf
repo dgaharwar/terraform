@@ -4,11 +4,11 @@
 variable "cloud" {
   description = "Glue: cloud selector — must be zoneId-cloudName (e.g. 1-Demo)"
   type        = string
-  default     = "26324-QA VMware"
+  default     = "1-VMware"
 }
 
 variable "groups" {
   description = "Group selector — included so tfvars ERB pattern matches customer layout"
   type        = string
-  default     = "deepti"
+  default     = "dgaharwar"
 }
