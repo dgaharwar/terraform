@@ -2,7 +2,7 @@
 # variable name in their repo is "cloud". This repro uses "cloud".
 
 variable "cloud" {
-  description = "Glue: cloud selector — must be zoneId-cloudName (e.g. 1-Demo)"
+  description = "Cloud selector — must be zoneId-cloudName (e.g. 1-Demo)"
   type        = string
 //  default     = ""
 }
