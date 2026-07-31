@@ -1,14 +1,14 @@
 # Customer Morpheus input may be labelled "privcloud" in the UI, but the TF
 # variable name in their repo is "cloud". This repro uses "cloud".
 
-variable "cloudSelector" {
-  description = "Cloud selector — must be zoneId-cloudName (e.g. 1-Demo)"
-  type        = string
-//  default     = "1-QA VMware"
-}
-
 variable "groupSelector" {
   description = "Group selector — included so tfvars ERB pattern matches customer layout"
   type        = string
 //  default     = "deepti"
+}
+
+variable "cloudSelector" {
+  description = "Cloud selector — must be zoneId-cloudName (e.g. 1-Demo)"
+  type        = string
+//  default     = "1-QA VMware"
 }
