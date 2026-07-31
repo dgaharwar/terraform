@@ -4,11 +4,11 @@
 variable "groupSelector" {
   description = "Group selector — included so tfvars ERB pattern matches customer layout"
   type        = string
-//  default     = "deepti"
+  default     = "deepti"
 }
 
 variable "cloudSelector" {
   description = "Cloud selector — must be zoneId-cloudName (e.g. 1-Demo)"
   type        = string
-//  default     = "1-QA VMware"
+  default     = "1-QA VMware"
 }
